@@ -53,8 +53,7 @@ class Saturation extends ReactCSS.Component {
     };
   }
 
-  handleChange(e, skip) {
-    !skip && e.preventDefault();
+  handleChange(e) {
     var container = React.findDOMNode(this.refs.container);
     var containerWidth = container.clientWidth;
     var containerHeight = container.clientHeight;
@@ -78,7 +77,8 @@ class Saturation extends ReactCSS.Component {
   }
 
   handleMouseDown(e) {
-    this.handleChange(e, true);
+    e.preventDefault();
+    this.handleChange(e);
     window.addEventListener('mousemove', this.handleChange);
     window.addEventListener('mouseup', this.handleMouseUp);
   }

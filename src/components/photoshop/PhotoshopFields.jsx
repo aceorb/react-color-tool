@@ -2,7 +2,7 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var color = require('../../helpers/color');
+var tinycolor = require('tinycolor2');
 
 var { EditableInput } = require('../common');
 
@@ -97,7 +97,7 @@ class PhotoshopPicker extends ReactCSS.Component {
 
   handleChange(data) {
     if (data['#']) {
-      color.isValidHex(data['#']) && this.props.onChange(data['#']);
+      tinycolor(data['#']).isValid() && this.props.onChange(data['#']);
     } else if (data.r || data.g || data.b) {
       this.props.onChange({
         r: data.r || this.props.rgb.r,

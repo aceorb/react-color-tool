@@ -2,7 +2,7 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var color = require('../../helpers/color');
+var tinycolor = require('../../../modules/tinycolor2');
 
 var { EditableInput } = require('../common');
 
@@ -54,7 +54,7 @@ class ShetchFields extends ReactCSS.Component {
 
   handleChange(data) {
     if (data.hex) {
-      color.isValidHex(data.hex) && this.props.onChange(data.hex);
+      tinycolor(data.hex).isValid() && this.props.onChange(data.hex);
     } else if (data.r || data.g || data.b) {
       this.props.onChange({
         r: data.r || this.props.rgb.r,

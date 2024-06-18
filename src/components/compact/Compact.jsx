@@ -2,7 +2,7 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var color = require('../../helpers/color');
+var tinycolor = require('../../../modules/tinycolor2');
 
 var { Raised } = require('../../../modules/react-material-design');
 var CompactColor = require('./CompactColor');
@@ -38,7 +38,7 @@ class Compact extends ReactCSS.Component {
 
   handleChange(data) {
     if (data.hex) {
-      color.isValidHex(data.hex) && this.props.onChange(data.hex);
+      tinycolor(data.hex).isValid() && this.props.onChange(data.hex);
     } else {
       this.props.onChange(data);
     }

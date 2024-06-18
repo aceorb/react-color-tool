@@ -1,5 +1,5 @@
 
 module.exports = {
-  Container: require('./lib/components/Container'),
-  Grid: require('./lib/components/Grid'),
+  Container: require('./components/Container'),
+  Grid: require('./components/Grid'),
 };

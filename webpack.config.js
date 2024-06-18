@@ -12,11 +12,16 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        exclude: [/node_modules/, /modules/],
+        include: /react-context/,
+        loaders: ['babel-loader'],
+      }, 
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
         loaders: ['babel-loader'],
       }, {
         test: /\.jsx$/,
-        exclude: [/node_modules/, /modules/],
+        exclude: /node_modules/,
         loaders: ['jsx-loader', 'babel-loader', 'react-map-styles'],
       }, {
         test: /\.css$/,
@@ -29,7 +34,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'react-color': path.resolve(__dirname, './src/index.js'),
+      'react-color': path.resolve(__dirname, './lib/index.js'),
       'react': path.resolve(__dirname, './node_modules/react'),
       'remarkable': path.resolve(__dirname, './modules/remarkable'),
       'highlight.js': path.resolve(__dirname, './modules/highlight.js'),
