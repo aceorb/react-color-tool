@@ -3,12 +3,12 @@
 import React from 'react'
 import ReactCSS from 'reactcss'
 
-import { ColorWrap, Saturation, Hue } from '../common'
+import { Saturation, Hue } from '../common'
 import PhotoshopFields from './PhotoshopFields'
 import PhotoshopPointerCircle from './PhotoshopPointerCircle'
 import PhotoshopPointer from './PhotoshopPointer'
 
-export class Photoshop extends ReactCSS.Component {
+export class PhotoshopPicker extends ReactCSS.Component {
 
   constructor(props: any) {
     super()
@@ -178,8 +178,8 @@ export class Photoshop extends ReactCSS.Component {
 
 }
 
-Photoshop.defaultProps = {
+PhotoshopPicker.defaultProps = {
   header: 'Color Picker',
 }
 
-export default ColorWrap(Photoshop)
+export default PhotoshopPicker

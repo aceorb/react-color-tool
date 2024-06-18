@@ -5,7 +5,6 @@ import ReactCSS from 'reactcss'
 import color from '../../helpers/color'
 import material from 'material-colors'
 
-import { ColorWrap } from '../common'
 import { Raised } from '../../../modules/react-material-design'
 import SwatchesGroup from './SwatchesGroup'
 
@@ -93,4 +92,4 @@ Swatches.defaultProps = {
   ],
 }
 
-export default ColorWrap(Swatches)
+export default Swatches

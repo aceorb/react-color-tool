@@ -5,7 +5,7 @@ import ReactCSS from 'reactcss'
 import color from '../../helpers/color'
 
 import { Raised } from '../../../modules/react-material-design'
-import { ColorWrap, EditableInput } from '../common'
+import { EditableInput } from '../common'
 
 export class Material extends ReactCSS.Component {
 
@@ -124,4 +124,4 @@ export class Material extends ReactCSS.Component {
 
 }
 
-export default ColorWrap(Material)
+export default Material

@@ -1,25 +1,25 @@
-'use strict'
+'use strict';
 
-import { React, TestUtils, expect, chai, spies, defaultProps } from '../config'
+import { React, TestUtils, expect, chai, spies, defaultProps } from '../config';
 
-import { Chrome } from '../../src/components/chrome/Chrome'
+import ChromeComponent from '../../src/components/chrome/Chrome';
 
-let props
+let props;
 
 describe('Chrome', () => {
 
   beforeEach(() => {
-    props = defaultProps
-  })
+    props = defaultProps;
+  });
 
   it('should call onChange when handleChange is called', () => {
-    props.onChange = chai.spy(() => {})
+    props.onChange = chai.spy(() => {});
 
-    const ChromePicker = TestUtils.renderIntoDocument(<Chrome {...props} />)
+    const Chrome = TestUtils.renderIntoDocument(<ChromeComponent {...props} />);
 
-    ChromePicker.handleChange()
+    Chrome.handleChange();
 
-    expect(props.onChange).to.have.been.called()
-  })
+    expect(props.onChange).to.have.been.called();
+  });
 
-})
+});

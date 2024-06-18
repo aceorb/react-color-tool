@@ -3,11 +3,11 @@
 import React from 'react'
 import ReactCSS from 'reactcss'
 
-import { ColorWrap, Hue } from '../common'
+import { Hue } from '../common'
 import SliderSwatches from './SliderSwatches'
 import SliderPointer from './SliderPointer'
 
-export class Slider extends ReactCSS.Component {
+export class Swatches extends ReactCSS.Component {
 
   constructor() {
     super()
@@ -50,4 +50,4 @@ export class Slider extends ReactCSS.Component {
 
 }
 
-export default ColorWrap(Slider)
+export default Swatches

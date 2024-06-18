@@ -3,7 +3,7 @@
 import React from 'react'
 import ReactCSS from 'reactcss'
 
-import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
+import { Saturation, Hue, Alpha, Checkboard } from '../common'
 import ChromeFields from './ChromeFields'
 import ChromePointer from './ChromePointer'
 import ChromePointerCircle from './ChromePointerCircle'
@@ -118,4 +118,4 @@ export class Chrome extends ReactCSS.Component {
 
 }
 
-export default ColorWrap(Chrome)
+export default Chrome
