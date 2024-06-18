@@ -51,7 +51,7 @@ export class Chrome extends ReactCSS.Component {
           overflow: 'hidden',
         },
         active: {
-          Absolute: '0px 0px 0px 0px',
+          Absolute: '0 0 0 0',
           zIndex: 2,
           borderRadius: '8px',
           boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.1)',
