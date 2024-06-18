@@ -54,10 +54,6 @@ export class Hue extends ReactCSS.Component {
     };
   }
 
-  componentWillUnmount() {
-    this.unbindEventListeners();
-  }
-
   handleChange(e: any, skip: boolean) {
     !skip && e.preventDefault();
     var container = this.refs.container;
@@ -104,10 +100,6 @@ export class Hue extends ReactCSS.Component {
   }
 
   handleMouseUp() {
-    this.unbindEventListeners();
-  }
-
-  unbindEventListeners() {
     window.removeEventListener('mousemove', this.handleChange);
     window.removeEventListener('mouseup', this.handleMouseUp);
   }
