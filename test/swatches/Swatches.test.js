@@ -1,6 +1,6 @@
 'use strict'
 
-import { React, ReactDOM, TestUtils, expect, chai, spies, defaultProps } from '../config'
+import { React, TestUtils, expect, chai, spies, defaultProps } from '../config'
 
 import { Swatches } from '../../src/components/swatches/Swatches'
 
@@ -21,9 +21,13 @@ describe('Swatches', () => {
     expect(props.onChange).to.have.been.called
   })
 
-  it('should render SwatchesGroup for each top-level array passed to props.colors', () => {
+  it('should render SwatchesGoup for each top-level array passed to props.colors', () => {
     const SwatchesComponent = TestUtils.renderIntoDocument(<Swatches {...props} colors={[['#333'], ['#fff'], ['#aaa'], ['#ddd']]} />)
-    let groupCount = ReactDOM.findDOMNode(SwatchesComponent.refs.body).children.length
+    let groups = SwatchesComponent.refs.body._reactInternalComponent._renderedChildren
+    let groupCount = 0
+    for (var group in groups) {
+      groupCount += 1
+    }
 
     expect(SwatchesComponent.props.colors).to.exist
     expect(groupCount).to.equal(5)

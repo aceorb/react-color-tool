@@ -29,8 +29,8 @@ class Grid extends ReactCSS.Component {
         },
         main: {
           position: 'absolute',
-          right: '0px',
-          top: '0px',
+          right: '0',
+          top: '0',
           width: '225px',
         },
       },

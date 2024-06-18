@@ -53,7 +53,7 @@ var Tile = function (_ReactCSS$Component) {
           sidebar: {
             minWidth: '56px',
             maxWidth: '56px',
-            flexBasis: '56px' },
+            flexBasis: '56' },
           // 72 minus 16
           content: {
             background: 'none',
@@ -77,13 +77,13 @@ var Tile = function (_ReactCSS$Component) {
         },
         'condensed': {
           tile: {
-            paddingBottom: '0px',
-            paddingTop: '0px'
+            paddingBottom: '0',
+            paddingTop: '0'
           },
           sidebar: {
             minWidth: '28px',
             maxWidth: '28px',
-            flexBasis: '28px'
+            flexBasis: '28'
           }
         }
       };
