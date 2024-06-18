@@ -18,7 +18,7 @@ class Move extends ReactCSS.Component {
   }
 
   componentDidMount() {
-    var animate = this.refs.outer;
+    var animate = React.findDOMNode(this.refs.outer);
 
     setTimeout((function() {
       animate.style.opacity = this.props.inEndOpacity;

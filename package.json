@@ -1,6 +1,6 @@
 {
   "name": "react-color",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "A Collection of Color Pickers from Sketch, Photoshop, Chrome & more",
   "main": "lib/index.js",
   "repository": {
@@ -31,8 +31,7 @@
     "material-colors": "^1.0.0",
     "merge": "^1.2.0",
     "npm": "^2.13.4",
-    "react": "^0.14.0-rc1",
-    "react-dom": "^0.14.0-rc1",
+    "react": "^0.13.3",
     "reactcss": "^0.3.2",
     "tinycolor2": "^1.1.2"
   },
