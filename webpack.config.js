@@ -12,11 +12,6 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        include: /react-context/,
-        loaders: ['babel-loader'],
-      }, 
-      {
-        test: /\.js$/,
         exclude: /node_modules/,
         loaders: ['babel-loader'],
       }, {
