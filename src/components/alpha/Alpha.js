@@ -7,12 +7,12 @@ import AlphaPointer from './AlphaPointer'
 export const AlphaPicker = (props) => {
   const styles = reactCSS({
     'default': {
-      alpha: {
+      hue: {
         position: 'relative',
         width: props.width,
         height: props.height,
       },
-      Alpha: {
+      Hue: {
         radius: '2px',
       },
     },
@@ -23,9 +23,9 @@ export const AlphaPicker = (props) => {
   }
 
   return (
-    <div style={ styles.alpha } className="alpha-picker">
+    <div style={ styles.hue }>
       <Alpha
-        { ...styles.Alpha }
+        { ...styles.Hue }
         { ...props }
         pointer={ AlphaPointer }
         onChange={ handleChange }
