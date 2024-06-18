@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.2.2 (27 July 2016)
+
+- Add click position support for use in iFrames and webviews
+
+## 2.2.1 (26 July 2016)
+
+- Remove extra console.log in Chrome picker
+
 ## 2.2.0 (8 June 2016)
 
 - `disableAlpha` on Chrome and Sketch pickers
