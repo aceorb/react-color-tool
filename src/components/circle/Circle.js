@@ -2,15 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 import map from 'lodash/map'
-import merge from 'lodash/merge'
 import * as material from 'material-colors'
 
 import { ColorWrap } from '../common'
 import CircleSwatch from './CircleSwatch'
 
 export const Circle = ({ width, onChange, onSwatchHover, colors, hex, circleSize,
-  styles: passedStyles = {}, circleSpacing, className = '' }) => {
-  const styles = reactCSS(merge({
+  circleSpacing, className = '' }) => {
+  const styles = reactCSS({
     'default': {
       card: {
         width,
@@ -20,7 +19,7 @@ export const Circle = ({ width, onChange, onSwatchHover, colors, hex, circleSize
         marginBottom: -circleSpacing,
       },
     },
-  }, passedStyles))
+  })
 
   const handleChange = (hexCode, e) => onChange({ hex: hexCode, source: 'hex' }, e)
 
@@ -45,7 +44,6 @@ Circle.propTypes = {
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   circleSize: PropTypes.number,
   circleSpacing: PropTypes.number,
-  styles: PropTypes.object,
 }
 
 Circle.defaultProps = {
@@ -58,7 +56,6 @@ Circle.defaultProps = {
     material.green['500'], material.lightGreen['500'], material.lime['500'],
     material.yellow['500'], material.amber['500'], material.orange['500'],
     material.deepOrange['500'], material.brown['500'], material.blueGrey['500']],
-  styles: {},
 }
 
 export default ColorWrap(Circle)

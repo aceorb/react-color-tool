@@ -1,14 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
-import merge from 'lodash/merge'
 import color from '../../helpers/color'
 
 import { ColorWrap, EditableInput, Checkboard } from '../common'
 import BlockSwatches from './BlockSwatches'
 
 export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
-  styles: passedStyles = {}, className = '' }) => {
+  className = '' }) => {
   const transparent = hex === 'transparent'
   const handleChange = (hexCode, e) => {
     color.isValidHex(hexCode) && onChange({
@@ -17,7 +16,7 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
     }, e)
   }
 
-  const styles = reactCSS(merge({
+  const styles = reactCSS({
     'default': {
       card: {
         width,
@@ -72,7 +71,7 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
         display: 'none',
       },
     },
-  }, passedStyles), { 'hide-triangle': triangle === 'hide' })
+  }, { 'hide-triangle': triangle === 'hide' })
 
   return (
     <div style={ styles.card } className={ `block-picker ${ className }` }>
@@ -103,7 +102,6 @@ Block.propTypes = {
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   colors: PropTypes.arrayOf(PropTypes.string),
   triangle: PropTypes.oneOf(['top', 'hide']),
-  styles: PropTypes.object,
 }
 
 Block.defaultProps = {
@@ -111,7 +109,6 @@ Block.defaultProps = {
   colors: ['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555',
     '#dce775', '#ff8a65', '#ba68c8'],
   triangle: 'top',
-  styles: {},
 }
 
 export default ColorWrap(Block)

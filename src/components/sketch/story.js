@@ -13,18 +13,3 @@ storiesOf('Pickers', module)
       }) }
     </SyncColorField>
   ))
-  .add('SketchPicker Custom Styles', () => (
-    <SyncColorField component={ Sketch }>
-      { renderWithKnobs(Sketch, {
-        styles: {
-          default: {
-            picker: {
-              boxShadow: 'none',
-            },
-          }
-        }
-      }, null, {
-        width: { range: true, min: 140, max: 500, step: 1 },
-      }) }
-    </SyncColorField>
-  ))

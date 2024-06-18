@@ -53,13 +53,6 @@ test('Sketch with onSwatchHover events correctly', () => {
   expect(hoverSpy).toHaveBeenCalled()
 })
 
-test('Sketch renders custom styles correctly', () => {
-  const tree = renderer.create(
-    <Sketch styles={{ default: { picker: { boxShadow: 'none' } } }} />,
-  ).toJSON()
-  expect(tree.props.style.boxShadow).toBe('none')
-})
-
 test('SketchFields renders correctly', () => {
   const tree = renderer.create(
     <SketchFields { ...red } />,

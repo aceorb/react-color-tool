@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
-import merge from 'lodash/merge'
 
 import { ColorWrap, Saturation, Hue } from '../common'
 import PhotoshopFields from './PhotoshopFields'
@@ -20,11 +19,8 @@ export class Photoshop extends React.Component {
   }
 
   render() {
-    const { 
-      styles: passedStyles = {},
-      className = '',
-    } = this.props
-    const styles = reactCSS(merge({
+    const { className = '' } = this.props
+    const styles = reactCSS({
       'default': {
         picker: {
           background: '#DCDCDC',
@@ -79,7 +75,7 @@ export class Photoshop extends React.Component {
           marginLeft: '20px',
         },
       },
-    }, passedStyles))
+    })
 
     return (
       <div style={ styles.picker } className={ `photoshop-picker ${ className }` }>
@@ -130,12 +126,10 @@ export class Photoshop extends React.Component {
 
 Photoshop.propTypes = {
   header: PropTypes.string,
-  styles: PropTypes.object,
 }
 
 Photoshop.defaultProps = {
   header: 'Color Picker',
-  styles: {},
 }
 
 export default ColorWrap(Photoshop)

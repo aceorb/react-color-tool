@@ -16,14 +16,6 @@ test('Slider renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
-test('Slider renders custom styles correctly', () => {
-  const tree = renderer.create(
-    <Slider styles={{ default: { wrap: { boxShadow: 'none' } } }} />,
-  ).toJSON()
-  expect(tree.props.style.boxShadow).toBe('none')
-})
-
-
 test('SliderPointer renders correctly', () => {
   const tree = renderer.create(
     <SliderPointer />,
