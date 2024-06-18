@@ -148,12 +148,12 @@ export class ChromeFields extends ReactCSS.Component {
     }
   }
 
-  showHighlight = () => {
-    this.refs.iconHighlight.style.display = 'block'
+  showHighlight = (e) => {
+    e.target.style.background = "#eee"
   }
 
-  hideHighlight = () => {
-    this.refs.iconHighlight.style.display = 'none'
+  hideHighlight = (e) => {
+    e.target.style.background = "transparent"
   }
 
   render(): any {
@@ -161,7 +161,7 @@ export class ChromeFields extends ReactCSS.Component {
     if (this.state.view === 'hex') {
       fields = <div is="fields" className="flexbox-fix">
         <div is="field">
-          <EditableInput is="Input" label="hex" value={ '#' + this.props.hex } onChange={ this.handleChange }/>
+          <EditableInput is="Input" label="hex" value={ this.props.hex } onChange={ this.handleChange }/>
         </div>
       </div>
     } else if (this.state.view === 'rgb') {
@@ -201,11 +201,15 @@ export class ChromeFields extends ReactCSS.Component {
         { fields }
         <div is="toggle">
           <div is="icon" onClick={ this.toggleViews } ref="icon">
-            <svg style={{ width:'24px', height:'24px', }} viewBox="0 0 24 24" onMouseOver={ this.showHighlight } onMouseEnter={ this.showHighlight } onMouseOut={ this.hideHighlight }>
-              <path fill="#333" d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z" />
+            <svg style={{ width:'24px', height:'24px', border: '1px transparent solid', borderRadius: '5px'}}
+              viewBox="0 0 24 24"
+              onMouseOver={ this.showHighlight }
+              onMouseEnter={ this.showHighlight }
+              onMouseOut={ this.hideHighlight }>
+              <path ref="iconUp" fill="#333" d="M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z" />
+              <path ref="iconDown" fill="#333" d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15Z"/>
             </svg>
           </div>
-          <div is="iconHighlight" ref="iconHighlight" />
         </div>
       </div>
     )
