@@ -78,13 +78,7 @@ export class Saturation extends ReactCSS.Component {
     var saturation = left * 100 / containerWidth
     var bright = -(top * 100 / containerHeight) + 100
 
-    this.throttle(this.props.onChange, {
-      h: this.props.hsl.h,
-      s: saturation,
-      v: bright,
-      a: this.props.hsl.a,
-      source: 'rgb',
-    })
+    this.throttle(this.props.onChange, { h: this.props.hsl.h, s: saturation, v: bright, a: this.props.hsl.a })
   }
 
   handleMouseDown(e: any) {
@@ -110,9 +104,7 @@ export class Saturation extends ReactCSS.Component {
     }
 
     return (
-      <div is="color" ref="container" onMouseDown={ this.handleMouseDown }
-          onTouchMove={ this.handleChange }
-          onTouchStart={ this.handleChange }>
+      <div is="color" ref="container" onMouseDown={ this.handleMouseDown } onTouchMove={ this.handleChange }>
         <div is="white">
           <div is="black" />
           <div is="pointer" ref="pointer">

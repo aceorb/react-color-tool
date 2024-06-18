@@ -2,7 +2,7 @@
 
 import React from 'react'
 import ReactCSS from 'reactcss'
-import ColorPicker from 'react-color'
+import { SketchPicker } from 'react-color'
 
 class SketchExample extends ReactCSS.Component {
 
@@ -56,7 +56,7 @@ class SketchExample extends ReactCSS.Component {
         <div is="swatch" onClick={ this.handleClick }>
           <div is="color" />
         </div>
-        <ColorPicker color={ this.state.color } display={ this.state.displayColorPicker } position="below" onChange={ this.handleChange } onClose={ this.handleClose } type="sketch" />
+        <SketchPicker color={ this.state.color } display={ this.state.displayColorPicker } position="below" onChange={ this.handleChange } onClose={ this.handleClose } />
       </div>
     )
   }

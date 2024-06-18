@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react'
-import ColorPicker from 'react-color'
+import { ChromePicker } from 'react-color'
 
 class ButtonExample extends React.Component {
 
@@ -26,7 +26,7 @@ class ButtonExample extends React.Component {
     return (
       <div>
         <button onClick={ this.handleClick }>Pick Color</button>
-        <ColorPicker display={ this.state.displayColorPicker } onClose={ this.handleClose } type="chrome" />
+        <ChromePicker display={ this.state.displayColorPicker } onClose={ this.handleClose } />
       </div>
     )
   }

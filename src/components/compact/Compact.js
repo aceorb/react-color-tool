@@ -5,6 +5,7 @@ import ReactCSS from 'reactcss'
 import color from '../../helpers/color'
 
 import { Raised } from '../../../modules/react-material-design'
+import { ColorWrap } from '../common'
 import CompactColor from './CompactColor'
 import CompactFields from './CompactFields'
 
@@ -39,10 +40,7 @@ export class Compact extends ReactCSS.Component {
 
   handleChange(data: any) {
     if (data.hex) {
-      color.isValidHex(data.hex) && this.props.onChange({
-        hex: data.hex,
-        source: 'hex',
-      })
+      color.isValidHex(data.hex) && this.props.onChange(data.hex)
     } else {
       this.props.onChange(data)
     }
@@ -81,4 +79,4 @@ Compact.defaultProps = {
          ],
 }
 
-export default Compact
+export default ColorWrap(Compact)

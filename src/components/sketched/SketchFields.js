@@ -54,17 +54,13 @@ export class ShetchFields extends ReactCSS.Component {
 
   handleChange(data: any) {
     if (data.hex) {
-      color.isValidHex(data.hex) && this.props.onChange({
-        hex: data.hex,
-        source: 'hex',
-      })
+      color.isValidHex(data.hex) && this.props.onChange(data.hex)
     } else if (data.r || data.g || data.b) {
       this.props.onChange({
         r: data.r || this.props.rgb.r,
         g: data.g || this.props.rgb.g,
         b: data.b || this.props.rgb.b,
         a: this.props.rgb.a,
-        source: 'rgb',
       })
     } else if (data.a) {
       if (data.a < 0) {
@@ -79,7 +75,6 @@ export class ShetchFields extends ReactCSS.Component {
         s: this.props.hsl.s,
         l: this.props.hsl.l,
         a: data.a,
-        source: 'rgb',
       })
     }
   }

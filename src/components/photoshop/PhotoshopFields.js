@@ -97,23 +97,18 @@ export class PhotoshopPicker extends ReactCSS.Component {
 
   handleChange(data: any) {
     if (data['#']) {
-      color.isValidHex(data['#']) && this.props.onChange({
-        hex: data['#'],
-        source: 'hex',
-      })
+      color.isValidHex(data['#']) && this.props.onChange(data['#'])
     } else if (data.r || data.g || data.b) {
       this.props.onChange({
         r: data.r || this.props.rgb.r,
         g: data.g || this.props.rgb.g,
         b: data.b || this.props.rgb.b,
-        source: 'rgb',
       })
     } else if (data.h || data.s || data.v) {
       this.props.onChange({
         h: data.h || this.props.hsv.h,
         s: data.s || this.props.hsv.s,
         v: data.v || this.props.hsv.v,
-        source: 'hsv',
       })
     }
   }

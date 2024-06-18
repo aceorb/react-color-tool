@@ -90,13 +90,9 @@ export class CompactColor extends ReactCSS.Component {
         r: data.r || this.props.rgb.r,
         g: data.g || this.props.rgb.g,
         b: data.b || this.props.rgb.b,
-        source: 'rgb',
       })
     } else {
-      this.props.onChange({
-        hex: data,
-        source: 'hex',
-      })
+      this.props.onChange(data)
     }
   }
 

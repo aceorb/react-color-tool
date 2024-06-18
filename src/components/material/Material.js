@@ -5,7 +5,7 @@ import ReactCSS from 'reactcss'
 import color from '../../helpers/color'
 
 import { Raised } from '../../../modules/react-material-design'
-import { EditableInput } from '../common'
+import { ColorWrap, EditableInput } from '../common'
 
 export class Material extends ReactCSS.Component {
 
@@ -91,16 +91,12 @@ export class Material extends ReactCSS.Component {
 
   handleChange(data: any) {
     if (data.hex) {
-      color.isValidHex(data.hex) && this.props.onChange({
-        hex: data.hex,
-        source: 'hex',
-      })
+      color.isValidHex(data.hex) && this.props.onChange(data.hex)
     } else if (data.r || data.g || data.b) {
       this.props.onChange({
         r: data.r || this.props.rgb.r,
         g: data.g || this.props.rgb.g,
         b: data.b || this.props.rgb.b,
-        source: 'rgb',
       })
     }
   }
@@ -128,4 +124,4 @@ export class Material extends ReactCSS.Component {
 
 }
 
-export default Material
+export default ColorWrap(Material)
