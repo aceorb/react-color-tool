@@ -1,9 +1,5 @@
 # Changelog
 
-## 2.2.1 (8 June 2016)
-
-- Remove extra console.log in Chrome picker
-
 ## 2.2.0 (8 June 2016)
 
 - `disableAlpha` on Chrome and Sketch pickers
