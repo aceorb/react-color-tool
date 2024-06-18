@@ -1,6 +1,6 @@
 'use strict'
 
-import { React, ReactDOM, TestUtils, expect, chai, spies, defaultProps } from '../config'
+import { React, TestUtils, expect, chai, spies, defaultProps } from '../config'
 
 import { Compact } from '../../src/components/compact/Compact'
 import CompactColor from '../../src/components/compact/CompactColor'

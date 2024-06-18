@@ -41,7 +41,7 @@ export class Checkboard extends ReactCSS.Component {
     return {
       'default': {
         grid: {
-          Absolute: '0px 0px 0px 0px',
+          Absolute: '0 0 0 0',
           background: 'url(' + background + ') center left',
         },
       },

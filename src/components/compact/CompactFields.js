@@ -34,7 +34,7 @@ export class CompactColor extends ReactCSS.Component {
             },
             input: {
               width: '80%',
-              padding: '0px',
+              padding: '0',
               paddingLeft: '20%',
               border: 'none',
               outline: 'none',
@@ -56,7 +56,7 @@ export class CompactColor extends ReactCSS.Component {
             },
             input: {
               width: '70%',
-              padding: '0px',
+              padding: '0',
               paddingLeft: '30%',
               border: 'none',
               outline: 'none',
@@ -68,7 +68,7 @@ export class CompactColor extends ReactCSS.Component {
             label: {
               position: 'absolute',
               top: '3px',
-              left: '0px',
+              left: '0',
               lineHeight: '16px',
               textTransform: 'uppercase',
               fontSize: '12px',
