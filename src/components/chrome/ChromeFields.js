@@ -39,7 +39,8 @@ export class ChromeFields extends ReactCSS.Component {
           marginRight: '-4px',
           marginTop: '12px',
           cursor: 'pointer',
-          position: 'relative'
+          position: 'relative',
+          zIndex: '2',
         },
         iconHighlight: {
           position: 'absolute',
