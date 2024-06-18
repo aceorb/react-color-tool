@@ -1,9 +1,11 @@
-'use strict'; /* @flow */
+'use strict';
 
 var React = require('react');
 var ReactCSS = require('reactcss');
 
-class Hue extends ReactCSS.Component {
+var Checkboard = require('./Checkboard');
+
+class Alpha extends ReactCSS.Component {
 
   constructor() {
     super();
@@ -13,87 +15,68 @@ class Hue extends ReactCSS.Component {
     this.handleMouseUp = this.handleMouseUp.bind(this);
   }
 
-  classes(): any {
+  classes() {
     return {
       'default': {
-        hue: {
+        alpha: {
           Absolute: '0 0 0 0',
-          background: 'linear-gradient(to right, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)',
           borderRadius: this.props.radius,
+        },
+        checkboard: {
+          Absolute: '0 0 0 0',
+          overflow: 'hidden',
+        },
+        gradient: {
+          Absolute: '0 0 0 0',
+          background: 'linear-gradient(to right, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 0) 0%, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 1) 100%)',
           boxShadow: this.props.shadow,
+          borderRadius: this.props.radius,
         },
         container: {
-          margin: '0 2px',
           position: 'relative',
+          zIndex: '2',
           height: '100%',
+          margin: '0 3px',
         },
         pointer: {
           zIndex: '2',
           position: 'absolute',
-          left: (this.props.hsl.h * 100) / 360 + '%',
+          left: this.props.rgb.a * 100 + '%',
         },
         slider: {
-          marginTop: '1px',
           width: '4px',
           borderRadius: '1px',
           height: '8px',
           boxShadow: '0 0 2px rgba(0, 0, 0, .6)',
           background: '#fff',
+          marginTop: '1px',
           transform: 'translateX(-2px)',
-        },
-      },
-      'direction-vertical': {
-        hue: {
-          background: 'linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)',
-        },
-        pointer: {
-          left: '0',
-          top: -((this.props.hsl.h * 100) / 360) + 100 + '%',
         },
       },
     };
   }
 
-  handleChange(e: any, skip: boolean) {
+  handleChange(e, skip) {
     !skip && e.preventDefault();
-    var container = React.findDOMNode(this.refs.container);
+    var container = this.refs.container;
     var containerWidth = container.clientWidth;
-    var containerHeight = container.clientHeight;
     var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset);
-    var top = (e.pageY || e.touches[0].pageY) - (container.getBoundingClientRect().top + window.pageYOffset);
 
-    if (this.props.direction === 'vertical') {
-      var h;
-      if (top < 0) {
-        h = 359;
-      } else if (top > containerHeight) {
-        h = 0;
-      } else {
-        var percent = -(top * 100 / containerHeight) + 100;
-        h = (360 * percent / 100);
-      }
-
-      if (this.props.hsl.h !== h) {
-        this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a });
-      }
+    var a;
+    if (left < 0) {
+      a = 0;
+    } else if (left > containerWidth) {
+      a = 1;
     } else {
-      var h;
-      if (left < 0) {
-        h = 0;
-      } else if (left > containerWidth) {
-        h = 359;
-      } else {
-        var percent = left * 100 / containerWidth;
-        h = (360 * percent / 100);
-      }
+      a = Math.round(left * 100 / containerWidth) / 100;
+    }
 
-      if (this.props.hsl.h !== h) {
-        this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a });
-      }
+    if (this.props.a !== a) {
+      this.props.onChange({ h: this.props.hsl.h, s: this.props.hsl.s, l: this.props.hsl.l, a: a });
     }
   }
 
-  handleMouseDown(e: any) {
+  handleMouseDown(e) {
     this.handleChange(e, true);
     window.addEventListener('mousemove', this.handleChange);
     window.addEventListener('mouseup', this.handleMouseUp);
@@ -104,7 +87,7 @@ class Hue extends ReactCSS.Component {
     window.removeEventListener('mouseup', this.handleMouseUp);
   }
 
-  render(): any {
+  render() {
     var pointer = <div is="slider" />;
 
     if (this.props.pointer) {
@@ -112,7 +95,11 @@ class Hue extends ReactCSS.Component {
     }
 
     return (
-      <div is="hue">
+      <div is="alpha">
+        <div is="checkboard">
+          <Checkboard />
+        </div>
+        <div is="gradient" />
         <div is="container" ref="container" onMouseDown={ this.handleMouseDown } onTouchMove={ this.handleChange }>
           <div is="pointer" ref="pointer">
             { pointer }
@@ -123,4 +110,4 @@ class Hue extends ReactCSS.Component {
   }
 }
 
-module.exports = Hue;
+module.exports = Alpha;

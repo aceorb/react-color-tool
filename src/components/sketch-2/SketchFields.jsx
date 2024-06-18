@@ -1,4 +1,4 @@
-'use strict'; /* @flow */
+'use strict';
 
 var React = require('react');
 var ReactCSS = require('reactcss');
@@ -14,7 +14,7 @@ class ShetchFields extends ReactCSS.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  classes(): any {
+  classes() {
     return {
       'default': {
         fields: {
@@ -52,7 +52,7 @@ class ShetchFields extends ReactCSS.Component {
     };
   }
 
-  handleChange(data: any) {
+  handleChange(data) {
     if (data.hex) {
       color.isValidHex(data.hex) && this.props.onChange(data.hex);
     } else if (data.r || data.g || data.b) {
@@ -79,7 +79,7 @@ class ShetchFields extends ReactCSS.Component {
     }
   }
 
-  render(): any {
+  render() {
     return (
       <div is="fields" className="flexbox-fix">
         <div is="double">

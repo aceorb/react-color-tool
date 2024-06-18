@@ -1,4 +1,4 @@
-'use strict'; /* @flow */
+'use strict';
 
 var React = require('react');
 var ReactCSS = require('reactcss');
@@ -16,7 +16,7 @@ class Swatches extends ReactCSS.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  classes(): any {
+  classes() {
     return {
       'default': {
         picker: {
@@ -38,11 +38,11 @@ class Swatches extends ReactCSS.Component {
     };
   }
 
-  handleChange(data: any) {
+  handleChange(data) {
     color.isValidHex(data) && this.props.onChange(data);
   }
 
-  render(): any {
+  render() {
     var groups = [];
     if (this.props.colors) {
       for (var i = 0; i < this.props.colors.length; i++) {

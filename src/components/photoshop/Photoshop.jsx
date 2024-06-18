@@ -1,4 +1,4 @@
-'use strict'; /* @flow */
+'use strict';
 
 var React = require('react');
 var ReactCSS = require('reactcss');
@@ -10,7 +10,7 @@ var PhotoshopPointer = require('./PhotoshopPointer');
 
 class PhotoshopPicker extends ReactCSS.Component {
 
-  constructor(props: any) {
+  constructor(props) {
     super();
 
     this.state = {
@@ -22,7 +22,7 @@ class PhotoshopPicker extends ReactCSS.Component {
     this.handleCancel = this.handleCancel.bind(this);
   }
 
-  classes(): any {
+  classes() {
     return {
       'default': {
         picker: {
@@ -122,7 +122,7 @@ class PhotoshopPicker extends ReactCSS.Component {
     };
   }
 
-  handleChange(data: any) {
+  handleChange(data) {
     this.props.onChange(data);
   }
 
@@ -134,7 +134,7 @@ class PhotoshopPicker extends ReactCSS.Component {
     this.props.onCancel && this.props.onCancel();
   }
 
-  render(): any {
+  render() {
     var header;
 
     if (this.props.header) {

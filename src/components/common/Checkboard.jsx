@@ -1,13 +1,13 @@
-'use strict'; /* @flow */
+'use strict';
 
 var React = require('react');
 var ReactCSS = require('reactcss');
 
 var _checkboardCache = {};
 
-function renderCheckboard(c1: string, c2: string, size: number): any {
+function renderCheckboard(c1, c2, size) {
   if (typeof document == 'undefined') return null; // Dont Render On Server
-  var canvas: any = document.createElement('canvas');
+  var canvas = document.createElement('canvas');
   canvas.width = canvas.height = size * 2;
   var ctx = canvas.getContext('2d');
   ctx.fillStyle = c1;
@@ -19,7 +19,7 @@ function renderCheckboard(c1: string, c2: string, size: number): any {
   return canvas.toDataURL();
 }
 
-function getCheckboard(c1: string, c2: string, size: number): any {
+function getCheckboard(c1, c2, size) {
   var key = c1 + ',' + c2 + ',' + size;
 
   if (_checkboardCache[key]) {
@@ -32,8 +32,7 @@ function getCheckboard(c1: string, c2: string, size: number): any {
 }
 
 class Checkboard extends ReactCSS.Component {
-
-  classes(): any {
+  classes() {
     var background = getCheckboard(this.props.white, this.props.grey, this.props.size);
     return {
       'default': {
@@ -45,7 +44,7 @@ class Checkboard extends ReactCSS.Component {
     };
   }
 
-  render(): any {
+  render() {
     return (
       <div is="grid" ref="grid"></div>
     );

@@ -1,11 +1,11 @@
-'use strict'; /* @flow */
+'use strict';
 
 var React = require('react');
 var ReactCSS = require('reactcss');
 
 class SliderPointer extends ReactCSS.Component {
 
-  classes(): any {
+  classes() {
     return {
       'default': {
         picker: {
@@ -20,7 +20,7 @@ class SliderPointer extends ReactCSS.Component {
     };
   }
 
-  render(): any {
+  render() {
     return (
       <div is="picker"></div>
     );

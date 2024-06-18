@@ -1,4 +1,4 @@
-'use strict'; /* @flow */
+'use strict';
 
 var React = require('react');
 var ReactCSS = require('reactcss');
@@ -14,7 +14,7 @@ class PhotoshopPicker extends ReactCSS.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  classes(): any {
+  classes() {
     return {
       'default': {
         fields: {
@@ -95,7 +95,7 @@ class PhotoshopPicker extends ReactCSS.Component {
     };
   }
 
-  handleChange(data: any) {
+  handleChange(data) {
     if (data['#']) {
       color.isValidHex(data['#']) && this.props.onChange(data['#']);
     } else if (data.r || data.g || data.b) {
@@ -113,7 +113,7 @@ class PhotoshopPicker extends ReactCSS.Component {
     }
   }
 
-  render(): any {
+  render() {
     return (
       <div is="fields">
         <EditableInput is="Input" label="h" value={ Math.round(this.props.hsv.h) } onChange={ this.handleChange }/>

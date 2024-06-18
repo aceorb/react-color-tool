@@ -1,25 +1,26 @@
-'use strict'; /* @flow */
+'use strict';
 
 var React = require('react');
 var ReactCSS = require('reactcss');
 
-class ChromePointerCircle extends ReactCSS.Component {
+class ChromePointer extends ReactCSS.Component {
 
-  classes(): any {
+  classes() {
     return {
       'default': {
         picker: {
           width: '12px',
           height: '12px',
           borderRadius: '6px',
-          boxShadow: 'inset 0 0 0 1px #fff',
-          transform: 'translate(-6px, -6px)',
+          transform: 'translate(-6px, -1px)',
+          backgroundColor: 'rgb(248, 248, 248)',
+          boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',
         },
       },
     };
   }
 
-  render(): any {
+  render() {
     return (
       <div is="picker"></div>
     );
@@ -27,4 +28,4 @@ class ChromePointerCircle extends ReactCSS.Component {
 
 }
 
-module.exports = ChromePointerCircle;
+module.exports = ChromePointer;

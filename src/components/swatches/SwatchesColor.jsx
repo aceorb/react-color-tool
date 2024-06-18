@@ -1,4 +1,4 @@
-'use strict'; /* @flow */
+'use strict';
 
 var React = require('react');
 var ReactCSS = require('reactcss');
@@ -11,7 +11,7 @@ class SwatchesColor extends ReactCSS.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  classes(): any {
+  classes() {
     return {
       'default': {
         color: {
@@ -51,7 +51,7 @@ class SwatchesColor extends ReactCSS.Component {
     this.props.onClick(this.props.color);
   }
 
-  render(): any {
+  render() {
     return (
       <div is="color" onClick={ this.handleClick }>
         <div is="check">

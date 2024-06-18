@@ -1,11 +1,11 @@
-'use strict'; /* @flow */
+'use strict';
 
 var React = require('react');
 var ReactCSS = require('reactcss');
 
 class PhotoshopPointerCircle extends ReactCSS.Component {
 
-  classes(): any {
+  classes() {
     return {
       'default': {
         picker: {
@@ -24,13 +24,13 @@ class PhotoshopPointerCircle extends ReactCSS.Component {
     };
   }
 
-  styles(): any {
+  styles() {
     return this.css({
       'black-outline': this.props.hsl.l > .5,
     });
   }
 
-  render(): any {
+  render() {
     return (
       <div is="picker"></div>
     );

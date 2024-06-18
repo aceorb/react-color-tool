@@ -1,4 +1,4 @@
-'use strict'; /* @flow */
+'use strict';
 
 var React = require('react');
 var ReactCSS = require('reactcss');
@@ -11,7 +11,7 @@ class SliderSwatch extends ReactCSS.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  classes(): any {
+  classes() {
     return {
       'default': {
         swatch: {
@@ -43,7 +43,7 @@ class SliderSwatch extends ReactCSS.Component {
     this.props.onClick({ h: this.props.hsl.h, s: .5, l: this.props.offset });
   }
 
-  render(): any {
+  render() {
     return (
       <div is="swatch" onClick={ this.handleClick } />
     );

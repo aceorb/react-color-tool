@@ -1,4 +1,4 @@
-'use strict'; /* @flow */
+'use strict';
 
 var React = require('react');
 var ReactCSS = require('reactcss');
@@ -8,7 +8,7 @@ var { EditableInput } = require('../common');
 
 class ChromeFields extends ReactCSS.Component {
 
-  constructor(props: any) {
+  constructor(props) {
     super();
 
     this.state = {
@@ -22,7 +22,7 @@ class ChromeFields extends ReactCSS.Component {
     this.showHighlight = this.showHighlight.bind(this);
   }
 
-  classes(): any {
+  classes() {
     return {
       'default': {
         wrap: {
@@ -87,7 +87,7 @@ class ChromeFields extends ReactCSS.Component {
     };
   }
 
-  handleChange(data: any) {
+  handleChange(data) {
     this.props.onChange(data);
   }
 
@@ -113,13 +113,13 @@ class ChromeFields extends ReactCSS.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps: any) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.hsl.a !== 1 && this.state.view === 'hex') {
       this.setState({ view: 'rgb' });
     }
   }
 
-  handleChange(data: any) {
+  handleChange(data) {
     if (data.hex) {
       color.isValidHex(data.hex) && this.props.onChange(data.hex);
     } else if (data.r || data.g || data.b) {
@@ -152,14 +152,14 @@ class ChromeFields extends ReactCSS.Component {
   }
 
   showHighlight() {
-    React.findDOMNode(this.refs.iconHighlight).style.display = 'block';
+    this.refs.iconHighlight.style.display = 'block';
   }
 
   hideHighlight() {
-    React.findDOMNode(this.refs.iconHighlight).style.display = 'none';
+    this.refs.iconHighlight.style.display = 'none';
   }
 
-  render(): any {
+  render() {
     var fields;
     if (this.state.view === 'hex') {
       fields = <div is="fields" className="flexbox-fix">

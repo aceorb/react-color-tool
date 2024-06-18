@@ -1,4 +1,4 @@
-'use strict'; /* @flow */
+'use strict';
 
 var React = require('react');
 var ReactCSS = require('reactcss');
@@ -16,7 +16,7 @@ class Chrome extends ReactCSS.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  classes(): any {
+  classes() {
     return {
       'default': {
         picker: {
@@ -83,11 +83,11 @@ class Chrome extends ReactCSS.Component {
     };
   }
 
-  handleChange(data: any) {
+  handleChange(data) {
     this.props.onChange(data);
   }
 
-  render(): any {
+  render() {
     return (
       <div is="picker">
         <div is="saturation">
